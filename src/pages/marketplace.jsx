@@ -10,20 +10,20 @@ const getListings = () =>
 const postListings = (data) => 
   fetch("https://ecomm-service.herokuapp.com/marketplace",{
     method: "POST",
-    header: { 'Content-Type':'application/json',},
+    headers: { 'Content-Type':'application/json',},
     body: JSON.stringify(data)
-  });
+  }).then((res) => res.json());
 
 export const Marketplace = () => {
   const [listings, setListings] = React.useState(undefined);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const [ title, setTitle ] = React.useState()
-  const [ price, setPrice ] = React.useState()
-  const [ description, setDescription ] = React.useState()
+  const [ title, setTitle ] = React.useState('')
+  const [ price, setPrice ] = React.useState('')
+  const [ description, setDescription ] = React.useState('')
   const [ condition, setCondition ] = React.useState('new')
   const [ availability, setAvailability ] = React.useState('in-stock')
-  const [ numOfStock, setNumOfStock ] = React.useState()
+  const [ numOfStock, setNumOfStock ] = React.useState('')
 
 
 
